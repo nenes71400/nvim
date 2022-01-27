@@ -45,13 +45,13 @@ use {'morhetz/gruvbox', config = get_config("theme") }
 --use {"NTBBloodbath/doom-one.nvim", config = get_config("doom-one")}
 
 --use {"jvgrootveld/telescope-zoxide"}
---use {"crispgm/telescope-heading.nvim"}
---use {"nvim-telescope/telescope-symbols.nvim"}
---use {"nvim-telescope/telescope-file-browser.nvim"}
---
---use {"kyazdani42/nvim-tree.lua", config = get_config("nvim-tree")}
---
---use {"numToStr/Navigator.nvim", config = get_config("navigator")}
+use {"crispgm/telescope-heading.nvim"}
+use {"nvim-telescope/telescope-symbols.nvim"}
+use {"nvim-telescope/telescope-file-browser.nvim"}
+
+use {"kyazdani42/nvim-tree.lua", config = get_config("nvim-tree")}
+
+use {"numToStr/Navigator.nvim", config = get_config("navigator")}
 
 use {
     "nvim-lualine/lualine.nvim",
@@ -75,17 +75,17 @@ use {"tpope/vim-surround"}
 --    keys = {"gc", "gcc"},
 --    config = get_config("comment")
 --}
---
---use {"windwp/nvim-autopairs", config = get_config("autopairs")}
---
+
+use {"windwp/nvim-autopairs", config = get_config("autopairs")}
+
 --use {
 --    "nvim-treesitter/nvim-treesitter",
 --    config = get_config("treesitter"),
 --    run = ":TSUpdate"
 --}
---
+
 --use "nvim-treesitter/nvim-treesitter-textobjects"
---
+
 --use {
 --    "hrsh7th/nvim-cmp",
 --    requires = {
@@ -95,17 +95,17 @@ use {"tpope/vim-surround"}
 --    },
 --    config = get_config("cmp")
 --}
---
---use {"hrsh7th/vim-vsnip", config = get_config("vsnip")}
---
---use {"rafamadriz/friendly-snippets", requires = {{"hrsh7th/vim-vsnip"}}}
---
+
+use {"hrsh7th/vim-vsnip", config = get_config("vsnip")}
+
+use {"rafamadriz/friendly-snippets", requires = {{"hrsh7th/vim-vsnip"}}}
+
 --use {
 --    "mhartington/formatter.nvim",
 --    event = "BufWritePre",
 --    config = get_config("formatter")
 --}
---
+
 ---- requirement for Neogit
 --use {
 --    "sindrets/diffview.nvim",
@@ -115,65 +115,65 @@ use {"tpope/vim-surround"}
 --    },
 --    config = get_config("diffview")
 --}
---
+
 --use {
 --    "TimUntersberger/neogit",
 --    requires = {"nvim-lua/plenary.nvim"},
 --    cmd = "Neogit",
 --    config = get_config("neogit")
 --}
---
+
 --use {"f-person/git-blame.nvim", config = get_config("git-blame")}
---
+
 --use {
 --    "lewis6991/gitsigns.nvim",
 --    requires = {"nvim-lua/plenary.nvim"},
 --    event = "BufReadPre",
 --    config = get_config("gitsigns")
 --}
---
+
 --use "p00f/nvim-ts-rainbow"
---
+
 --use {
 --    "kevinhwang91/nvim-bqf",
 --    requires = {{"junegunn/fzf", module = "nvim-bqf"}}
 --}
---
---use {"nvim-telescope/telescope-fzf-native.nvim", run = "make"}
---
+
+use {"nvim-telescope/telescope-fzf-native.nvim", run = "make"}
+
 --use {
 --    "akinsho/nvim-bufferline.lua",
 --    requires = "kyazdani42/nvim-web-devicons",
 --    event = "BufReadPre",
 --    config = get_config("bufferline")
 --}
---
+
 --use "famiu/bufdelete.nvim"
---
-use {"neovim/nvim-lspconfig", config = get_config("lsp")}
---
+
+--use {"neovim/nvim-lspconfig", config = get_config("lsp")}
+
 --use {"ray-x/lsp_signature.nvim", requires = {{"neovim/nvim-lspconfig"}}}
---
+
 --use {"onsails/lspkind-nvim", requires = {{"famiu/bufdelete.nvim"}}}
---
+
 --use {
 --    "simrat39/symbols-outline.nvim",
 --    cmd = {"SymbolsOutline"},
 --    config = get_config("symbols")
 --}
---
+
 --use {
 --    "lukas-reineke/indent-blankline.nvim",
 --    event = "BufReadPre",
 --    config = [[require("config/indent-blankline")]]
 --}
---
+
 --use {
 --    "akinsho/nvim-toggleterm.lua",
 --    keys = {"<C-y>", "<leader>fl", "<leader>gt"},
 --    config = get_config("toggleterm")
 --}
---
+
 --use {
 --    "blackCauldron7/surround.nvim",
 --    config = function()
@@ -183,41 +183,35 @@ use {"neovim/nvim-lspconfig", config = get_config("lsp")}
 --}
 --
 --use "sotte/presenting.vim"
---
---use {
---    "folke/trouble.nvim",
---    requires = "kyazdani42/nvim-web-devicons",
---    cmd = {"TroubleToggle", "Trouble"},
---    config = get_config("trouble")
---}
---
---use {
---    "folke/todo-comments.nvim",
---    requires = "nvim-lua/plenary.nvim",
---    cmd = {"TodoTrouble", "TodoTelescope"},
---    event = "BufReadPost",
---    config = get_config("todo")
---}
---
+
+use {
+    "folke/trouble.nvim",
+    requires = "kyazdani42/nvim-web-devicons",
+    cmd = {"TroubleToggle", "Trouble"},
+    config = get_config("trouble")
+}
+
+use {
+    "folke/todo-comments.nvim",
+    requires = "nvim-lua/plenary.nvim",
+    cmd = {"TodoTrouble", "TodoTelescope"},
+    event = "BufReadPost",
+    config = get_config("todo")
+}
+
 --use {"ahmedkhalf/project.nvim", config = get_config("project")}
---
---use "ironhouzi/starlite-nvim"
---
---use {"folke/which-key.nvim", event = "VimEnter", config = get_config("which")}
---
---use "junegunn/vim-easy-align" -- no lua alternative
---
---use {"rhysd/vim-grammarous", cmd = "GrammarousCheck"}
---
---use {"RRethy/vim-illuminate", event = "CursorHold"}
---
+
+use {"folke/which-key.nvim", event = "VimEnter", config = get_config("which")}
+
+use "junegunn/vim-easy-align" -- no lua alternative
+
+
 --use {
 --    "ptzz/lf.vim",
 --    requires = "voldikss/vim-floaterm",
 --    config = get_config("lf")
 --}
---
---
+
 use {
     "karb94/neoscroll.nvim",
     keys = {"<C-u>", "<C-d>", "<C-b>", "<C-f>", "<C-e>", "zt", "zz", "zb"},

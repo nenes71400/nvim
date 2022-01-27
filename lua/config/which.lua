@@ -106,10 +106,11 @@ wk.register({
         name = "Files",
         b = {"<cmd>Telescope file_browser<cr>", "File browser"},
         f = {
-            "<cmd>lua require'telescope.builtin'.find_files({ find_command = {'fd', '--hidden', '--type', 'file', '--follow'}})<cr>",
-            "Find File"
-        },
-        l = {"<cmd>Lf<cr>", "Open LF"},
+          "<cmd>Telescope find_files<cr>","Find File"},
+--            "<cmd>lua require'telescope.builtin'.find_files({ find_command = {'fd', '--hidden', '--type', 'file', '--follow'}})<cr>",
+--            "Find File"
+--        },
+--        l = {"<cmd>Lf<cr>", "Open LF"},
         p = {"<cmd>NvimTreeToggle<cr>", "Toogle Tree"},
         r = {"<cmd>Telescope oldfiles<cr>", "Open Recent File"},
         s = {"<cmd>w<cr>", "Save Buffer"},
@@ -134,79 +135,76 @@ wk.register({
         b = {"<cmd>Telescope git_branches<cr>", "Checkout branch"},
         B = {"<cmd>GitBlameToggle<cr>", "Toogle Blame"},
         c = {"<cmd>Telescope git_commits<cr>", "Checkout commit"},
-        C = {
-            "<cmd>Telescope git_bcommits<cr>",
-            "Checkout commit(for current file)"
-        }
+        C = {"<cmd>Telescope git_bcommits<cr>", "Checkout commit(for current file)" }
     },
-    h = {
-        name = "Harpoon",
-        a = {"<cmd>lua require('harpoon.mark').add_file()<cr>", "Add file"},
-        u = {
-            "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>",
-            "Open Menu"
-        },
-        ["1"] = {
-            "<cmd>lua require('harpoon.ui').nav_file(1)<cr>", "Open File 1"
-        },
-        ["2"] = {
-            "<cmd>lua require('harpoon.ui').nav_file(1)<cr>", "Open File 2"
-        },
-        ["3"] = {
-            "<cmd>lua require('harpoon.ui').nav_file(1)<cr>", "Open File 3"
-        },
-        ["4"] = {
-            "<cmd>lua require('harpoon.ui').nav_file(1)<cr>", "Open File 4"
-        }
-    },
-    l = {
-        name = "LSP",
-        A = {
-            "<cmd>lua vim.lsp.buf.add_workspace_folder()<cr>",
-            "Add Workspace Folder"
-        },
-        D = {"<cmd>lua vim.lsp.buf.declaration()<cr>", "Go To Declaration"},
-        I = {
-            "<cmd>lua vim.lsp.buf.implementation()<cr>", "Show implementations"
-        },
-        K = {"<cmd>lua vim.lsp.buf.hover()<cr>", "Hover Commands"},
-        L = {
-            "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<cr>",
-            "List Workspace Folders"
-        },
-        R = {"<cmd>lua vim.lsp.buf.rename()<cr>", "Rename"},
-        S = {
-            "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
-            "Workspace Symbols"
-        },
-        W = {
-            "<cmd>lua vim.lsp.buf.remove_workspace_folder()<cr>",
-            "Remove Workspace Folder"
-        },
-        a = {"<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action"},
-        d = {"<cmd>lua vim.lsp.buf.definition()<cr>", "Go To Definition"},
-        e = {"<cmd>Telescope diagnostics bufnr=0<cr>", "Document Diagnostics"},
-        f = {"<cmd>lua vim.lsp.buf.formatting()<cr>", "Format"},
-        i = {"<cmd>LspInfo<cr>", "Connected Language Servers"},
-        k = {"<cmd>lua vim.lsp.buf.signature_help()<cr>", "Signature Help"},
-        l = {
-            "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>",
-            "Line diagnostics"
-        },
-        n = {"<cmd>lua vim.diagnostic.goto_next()<cr>", "Next Diagnostic"},
-        p = {"<cmd>lua vim.diagnostic.goto_prev()<cr>", "Prev Diagnostic"},
-        q = {"<cmd>lua vim.diagnostic.set_loclist()<cr>", "Quickfix"},
-        r = {"<cmd>lua vim.lsp.buf.references()<cr>", "References"},
-        s = {"<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols"},
-        t = {"<cmd>lua vim.lsp.buf.type_definition()<cr>", "Type Definition"},
-        w = {"<cmd>Telescope diagnostics<cr>", "Workspace Diagnostics"}
-    },
+--    h = {
+--        name = "Harpoon",
+--        a = {"<cmd>lua require('harpoon.mark').add_file()<cr>", "Add file"},
+--        u = {
+--            "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>",
+--            "Open Menu"
+--        },
+--        ["1"] = {
+--            "<cmd>lua require('harpoon.ui').nav_file(1)<cr>", "Open File 1"
+--        },
+--        ["2"] = {
+--            "<cmd>lua require('harpoon.ui').nav_file(1)<cr>", "Open File 2"
+--        },
+--        ["3"] = {
+--            "<cmd>lua require('harpoon.ui').nav_file(1)<cr>", "Open File 3"
+--        },
+--        ["4"] = {
+--            "<cmd>lua require('harpoon.ui').nav_file(1)<cr>", "Open File 4"
+--        }
+--    },
+--    l = {
+--        name = "LSP",
+--        A = {
+--            "<cmd>lua vim.lsp.buf.add_workspace_folder()<cr>",
+--            "Add Workspace Folder"
+--        },
+--        D = {"<cmd>lua vim.lsp.buf.declaration()<cr>", "Go To Declaration"},
+--        I = {
+--            "<cmd>lua vim.lsp.buf.implementation()<cr>", "Show implementations"
+--        },
+--        K = {"<cmd>lua vim.lsp.buf.hover()<cr>", "Hover Commands"},
+--        L = {
+--            "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<cr>",
+--            "List Workspace Folders"
+--        },
+--        R = {"<cmd>lua vim.lsp.buf.rename()<cr>", "Rename"},
+--        S = {
+--            "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
+--            "Workspace Symbols"
+--        },
+--        W = {
+--            "<cmd>lua vim.lsp.buf.remove_workspace_folder()<cr>",
+--            "Remove Workspace Folder"
+--        },
+--        a = {"<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action"},
+--        d = {"<cmd>lua vim.lsp.buf.definition()<cr>", "Go To Definition"},
+--        e = {"<cmd>Telescope diagnostics bufnr=0<cr>", "Document Diagnostics"},
+--        f = {"<cmd>lua vim.lsp.buf.formatting()<cr>", "Format"},
+--        i = {"<cmd>LspInfo<cr>", "Connected Language Servers"},
+--        k = {"<cmd>lua vim.lsp.buf.signature_help()<cr>", "Signature Help"},
+--        l = {
+--            "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>",
+--            "Line diagnostics"
+--        },
+--        n = {"<cmd>lua vim.diagnostic.goto_next()<cr>", "Next Diagnostic"},
+--        p = {"<cmd>lua vim.diagnostic.goto_prev()<cr>", "Prev Diagnostic"},
+--        q = {"<cmd>lua vim.diagnostic.set_loclist()<cr>", "Quickfix"},
+--        r = {"<cmd>lua vim.lsp.buf.references()<cr>", "References"},
+--        s = {"<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols"},
+--        t = {"<cmd>lua vim.lsp.buf.type_definition()<cr>", "Type Definition"},
+--        w = {"<cmd>Telescope diagnostics<cr>", "Workspace Diagnostics"}
+--    },
     m = {
         name = "Misc",
-        t = {"<cmd>FloatermNew --autoclose=2<cr>", "New Floaterm"},
-        s = {"<cmd>SymbolsOutline<cr>", "Toggle SymbolsOutline"},
-        S = {"<cmd>SidebarNvimToggle<cr>", "Toggle Sidebar"},
-        z = {"<cmd>ZenMode<cr>", "Toggle ZenMode"}
+--        t = {"<cmd>FloatermNew --autoclose=2<cr>", "New Floaterm"},
+--        s = {"<cmd>SymbolsOutline<cr>", "Toggle SymbolsOutline"},
+        S = {"<cmd>SidebarNvimToggle<cr>", "Toggle Sidebar"}
+--        z = {"<cmd>ZenMode<cr>", "Toggle ZenMode"}
     },
     s = {
         name = "Search",
@@ -243,6 +241,8 @@ wk.register({
         ["="] = {"<c-w>=", "Equally size"},
         v = {"<cmd>:vsplit<cr>", "Verstical Split"},
         w = {"<c-w>x", "Swap"}
+--        o = {"<cmd>SidebarNvimOpen<CR><cmd>SidebarNvimFocus<CR>", "Sidebar Open"},
+--        c = {"<cmd>SidebarNvimClose<CR>", "Sidebar Close"}
     },
 --    x = {
 --        name = "LanguageTool",

@@ -38,13 +38,7 @@ use {
     config = get_config("telescope")
 }
 
--- Theme
---use {'folke/tokyonight.nvim', config = get_config("tokyonight") }
---use {'ellisonleao/gruvbox.nvim', config = get_config("theme") }
-use {'morhetz/gruvbox', config = get_config("theme") }
---use {"NTBBloodbath/doom-one.nvim", config = get_config("doom-one")}
-
---use {"jvgrootveld/telescope-zoxide"}
+use {"jvgrootveld/telescope-zoxide"}
 use {"crispgm/telescope-heading.nvim"}
 use {"nvim-telescope/telescope-symbols.nvim"}
 use {"nvim-telescope/telescope-file-browser.nvim"}
@@ -106,31 +100,31 @@ use {"rafamadriz/friendly-snippets", requires = {{"hrsh7th/vim-vsnip"}}}
 --    config = get_config("formatter")
 --}
 
----- requirement for Neogit
---use {
---    "sindrets/diffview.nvim",
---    cmd = {
---        "DiffviewOpen", "DiffviewClose", "DiffviewToggleFiles",
---        "DiffviewFocusFiles"
---    },
---    config = get_config("diffview")
---}
+-- requirement for Neogit
+use {
+    "sindrets/diffview.nvim",
+    cmd = {
+        "DiffviewOpen", "DiffviewClose", "DiffviewToggleFiles",
+        "DiffviewFocusFiles"
+    },
+    config = get_config("diffview")
+}
 
---use {
---    "TimUntersberger/neogit",
---    requires = {"nvim-lua/plenary.nvim"},
---    cmd = "Neogit",
---    config = get_config("neogit")
---}
+use {
+    "TimUntersberger/neogit",
+    requires = {"nvim-lua/plenary.nvim"},
+    cmd = "Neogit",
+    config = get_config("neogit")
+}
 
---use {"f-person/git-blame.nvim", config = get_config("git-blame")}
+use {"f-person/git-blame.nvim", config = get_config("git-blame")}
 
---use {
---    "lewis6991/gitsigns.nvim",
---    requires = {"nvim-lua/plenary.nvim"},
---    event = "BufReadPre",
---    config = get_config("gitsigns")
---}
+use {
+    "lewis6991/gitsigns.nvim",
+    requires = {"nvim-lua/plenary.nvim"},
+    event = "BufReadPre",
+    config = get_config("gitsigns")
+}
 
 --use "p00f/nvim-ts-rainbow"
 
@@ -199,7 +193,7 @@ use {
     config = get_config("todo")
 }
 
---use {"ahmedkhalf/project.nvim", config = get_config("project")}
+use {"ahmedkhalf/project.nvim", config = get_config("project")}
 
 use {"folke/which-key.nvim", event = "VimEnter", config = get_config("which")}
 
@@ -243,8 +237,11 @@ use {"sidebar-nvim/sidebar.nvim", config = get_config("sidebar")}
 use {"famiu/nvim-reload", config = get_config("nvim-reload")}
 
 --use {"rcarriga/nvim-notify", config = get_config("notify")}
---
----- TODO: ????
----- https://github.com/glepnir/lspsaga.nvim
----- use 'glepnir/lspsaga.nvim'
---
+
+
+-- Theme
+--use {'folke/tokyonight.nvim', config = get_config("tokyonight") }
+--use {'ellisonleao/gruvbox.nvim', config = get_config("theme") }
+use {'morhetz/gruvbox', config = get_config("theme") }
+--use {"NTBBloodbath/doom-one.nvim", config = get_config("doom-one")}
+

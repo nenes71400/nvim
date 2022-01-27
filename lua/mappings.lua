@@ -11,8 +11,8 @@ vim.g.mapleader = " "
 map('n', ':', '<cmd>FineCmdline<CR>', {noremap = true})
 
 ---- Sidebar
-map("n", "so", "<cmd>SidebarNvimOpen<CR><cmd>SidebarNvimFocus<CR>", {noremap = true})
-map("n", "sc", "<cmd>SidebarNvimClose<CR>", {noremap = true})
+--map("n", "so", "<cmd>SidebarNvimOpen<CR><cmd>SidebarNvimFocus<CR>", {noremap = true})
+--map("n", "sc", "<cmd>SidebarNvimClose<CR>", {noremap = true})
 
 ---- center search results
 --map("n", "n", "nzz", default_options)

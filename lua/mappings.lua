@@ -8,7 +8,7 @@ vim.g.mapleader = " "
 
 ---- remap :
 --map("n", "<C-P>", "<cmd>FineCmdline<CR>", {noremap = true})
-map('n', ':', '<cmd>FineCmdline<CR>', {noremap = true})
+--map('n', ':', '<cmd>FineCmdline<CR>', {noremap = true})
 
 ---- Sidebar
 --map("n", "so", "<cmd>SidebarNvimOpen<CR><cmd>SidebarNvimFocus<CR>", {noremap = true})

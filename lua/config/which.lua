@@ -76,37 +76,21 @@ wk.register({
     ["<Tab>"] = {"<cmd>e#<cr>", "Switch to previously opened buffer"},
     b = {
         name = "Buffers",
-        b = {
-            "<cmd>lua require'telescope.builtin'.buffers({ sort_mru = true, ignore_current_buffer = true })<cr>",
-            "Find buffer"
-        },
-        a = {
-            "<cmd>BufferLineCloseLeft<cr><cmd>BufferLineCloseRight<cr>",
-            "Close all but the current buffer"
-        },
+        b = {"<cmd>lua require'telescope.builtin'.buffers({ sort_mru = true, ignore_current_buffer = true })<cr>","Find buffer"},
+        a = {"<cmd>BufferLineCloseLeft<cr><cmd>BufferLineCloseRight<cr>","Close all but the current buffer"},
         d = {"<cmd>Bdelete!<CR>", "Close Buffer"},
         f = {"<cmd>BufferLinePick<cr>", "Pick buffer"},
         l = {"<cmd>BufferLineCloseLeft<cr>", "Close all buffers to the left"},
         p = {"<cmd>BufferLineMovePrev<cr>", "Move buffer prev"},
         n = {"<cmd>BufferLineMoveNext<cr>", "Move buffer next"},
-        r = {
-            "<cmd>BufferLineCloseRight<cr>",
-            "Close all BufferLines to the right"
-        },
-        x = {
-            "<cmd>BufferLineSortByDirectory<cr>",
-            "Sort BufferLines automatically by directory"
-        },
-        L = {
-            "<cmd>BufferLineSortByExtension<cr>",
-            "Sort BufferLines automatically by extension"
-        }
+        r = {"<cmd>BufferLineCloseRight<cr>","Close all BufferLines to the right"},
+        x = {"<cmd>BufferLineSortByDirectory<cr>","Sort BufferLines automatically by directory"},
+        L = {"<cmd>BufferLineSortByExtension<cr>","Sort BufferLines automatically by extension"}
     },
     f = {
         name = "Files",
         b = {"<cmd>Telescope file_browser<cr>", "File browser"},
-        f = {
-          "<cmd>Telescope find_files<cr>","Find File"},
+        f = {"<cmd>Telescope find_files<cr>","Find File"},
 --            "<cmd>lua require'telescope.builtin'.find_files({ find_command = {'fd', '--hidden', '--type', 'file', '--follow'}})<cr>",
 --            "Find File"
 --        },
@@ -125,12 +109,9 @@ wk.register({
         r = {"<cmd>lua require 'gitsigns'.reset_hunk()<cr>", "Reset Hunk"},
         R = {"<cmd>lua require 'gitsigns'.reset_buffer()<cr>", "Reset Buffer"},
         s = {"<cmd>lua require 'gitsigns'.stage_hunk()<cr>", "Stage Hunk"},
-        t = "Open Gitui", -- comand in toggleterm.lua
+        --t = "Open Gitui", -- comand in toggleterm.lua
         n = {"<cmd>Neogit<cr>", "Open Neogit"},
-        u = {
-            "<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>",
-            "Undo Stage Hunk"
-        },
+        u = {"<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>","Undo Stage Hunk"},
         g = {"<cmd>Telescope git_status<cr>", "Open changed file"},
         b = {"<cmd>Telescope git_branches<cr>", "Checkout branch"},
         B = {"<cmd>GitBlameToggle<cr>", "Toogle Blame"},
@@ -219,10 +200,7 @@ wk.register({
         k = {"<cmd>Telescope keymaps<cr>", "Keymaps"},
         c = {"<cmd>Telescope commands<cr>", "Commands"},
         p = {"<cmd>Telescope projects<cr>", "Projects"},
-        P = {
-            "<cmd>lua require('telescope.builtin.internal').colorscheme({enable_preview = true})<cr>",
-            "Colorscheme with Preview"
-        }
+        P = {"<cmd>lua require('telescope.builtin.internal').colorscheme({enable_preview = true})<cr>","Colorscheme with Preview"}
     },
     t = {
         name = "Trouble",
@@ -230,20 +208,21 @@ wk.register({
         d = {"<cmd>Trouble document_diagnostics<cr>", "Document Diagnostic"},
         l = {"<cmd>Trouble loclist<cr>", "Loclist"},
         q = {"<cmd>Trouble quickfix<cr>", "Quickfix"},
-        t = {"<cmd>TodoTrouble<cr>", "Todos"},
+--        t = {"<cmd>TodoTrouble<cr>", "Todos"},
         r = {"<cmd>Trouble lsp_references<cr>", "LSP References"}
     },
     w = {
         name = "Window",
         q = {"<cmd>:q<cr>", "Close"},
         s = {"<cmd>:split<cr>", "Horizontal Split"},
+        v = {"<cmd>:vsplit<cr>", "Verstical Split"},
         t = {"<c-w>t", "Move to new tab"},
         ["="] = {"<c-w>=", "Equally size"},
-        v = {"<cmd>:vsplit<cr>", "Verstical Split"},
-        w = {"<c-w>x", "Swap"}
+        x = {"<c-w>x", "Swap"},
+        w = {"<c-w>w", "Move next"}
 --        o = {"<cmd>SidebarNvimOpen<CR><cmd>SidebarNvimFocus<CR>", "Sidebar Open"},
 --        c = {"<cmd>SidebarNvimClose<CR>", "Sidebar Close"}
-    },
+    }
 --    x = {
 --        name = "LanguageTool",
 --        c = {"<cmd>GrammarousCheck<cr>", "Grammar check"},
@@ -271,13 +250,13 @@ wk.register({
 --            "Disable the grammar rule under the cursor"
 --        }
 --    },
-    z = {
-        name = "Spelling",
-        n = {"]s", "Next"},
-        p = {"[s", "Previous"},
-        a = {"zg", "Add word"},
-        f = {"1z=", "Use 1. correction"},
-        l = {"<cmd>Telescope spell_suggest<cr>", "List corrections"}
-    }
+--    z = {
+--        name = "Spelling",
+--        n = {"]s", "Next"},
+--        p = {"[s", "Previous"},
+--        a = {"zg", "Add word"},
+--        f = {"1z=", "Use 1. correction"},
+--        l = {"<cmd>Telescope spell_suggest<cr>", "List corrections"}
+--    }
 }, {prefix = "<leader>", mode = "n", default_options})
 

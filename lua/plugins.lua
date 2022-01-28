@@ -42,10 +42,14 @@ use {"jvgrootveld/telescope-zoxide"}
 use {"crispgm/telescope-heading.nvim"}
 use {"nvim-telescope/telescope-symbols.nvim"}
 use {"nvim-telescope/telescope-file-browser.nvim"}
+use {"nvim-telescope/telescope-fzf-native.nvim", run = "make"}
 
-use {"kyazdani42/nvim-tree.lua", config = get_config("nvim-tree")}
+use {"fannheyward/telescope-coc.nvim"} --, config = get_config("telescope-coc")}
+
 
 use {"numToStr/Navigator.nvim", config = get_config("navigator")}
+
+use {"kyazdani42/nvim-tree.lua", config = get_config("nvim-tree")}
 
 use {
     "nvim-lualine/lualine.nvim",
@@ -133,16 +137,15 @@ use {
 --    requires = {{"junegunn/fzf", module = "nvim-bqf"}}
 --}
 
-use {"nvim-telescope/telescope-fzf-native.nvim", run = "make"}
 
---use {
---    "akinsho/nvim-bufferline.lua",
---    requires = "kyazdani42/nvim-web-devicons",
---    event = "BufReadPre",
---    config = get_config("bufferline")
---}
+use {
+    "akinsho/nvim-bufferline.lua",
+    requires = "kyazdani42/nvim-web-devicons",
+    event = "BufReadPre",
+    config = get_config("bufferline")
+}
 
---use "famiu/bufdelete.nvim"
+use "famiu/bufdelete.nvim"
 
 --use {"neovim/nvim-lspconfig", config = get_config("lsp")}
 

@@ -1,6 +1,18 @@
-local o = vim.opt
+-----------------------------------------------------------
+-- Neovim API aliases
+-----------------------------------------------------------
+--local map = vim.api.nvim_set_keymap  -- set global keymap
+local cmd = vim.cmd     				-- execute Vim commands
+local exec = vim.api.nvim_exec 	-- execute Vimscript
+local fn = vim.fn       				-- call Vim functions
+local g = vim.g         				-- global variables
+local o = vim.opt         		  -- global/buffer/windows-scoped options
 local wo = vim.wo
-local fn = vim.fn
+-----------------------------------------------------------
+-- General
+-----------------------------------------------------------
+--g.mapleader = ','         -- change leader to a comma
+o.mouse = 'a'               -- enable mouse support
 
 vim.cmd "filetype indent plugin on"
 vim.cmd "set inccommand=split"

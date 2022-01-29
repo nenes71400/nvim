@@ -68,3 +68,4 @@ telescope.setup {
         set_env = {["COLORTERM"] = "truecolor"} -- default = nil,
     }
 }
+

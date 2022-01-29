@@ -4,6 +4,7 @@ expr_options = {noremap = true, expr = true, silent = true}
 
 -- map the leader key
 map("n", "<Space>", "<NOP>", default_options)
+--map("n", ",", "<NOP>", default_options)
 vim.g.mapleader = " "
 
 ---- remap :
@@ -30,11 +31,20 @@ vim.g.mapleader = " "
 --map("v", "p", "\"_dP", default_options)
 
 -- Tab switch buffer
-map("n", "<TAB>", ":bnext<CR>", default_options)
-map("n", "<S-TAB>", ":bprevious<CR>", default_options)
+--map("n", "<TAB>", ":bnext<CR>", default_options)
+--map("n", "<S-TAB>", ":bprevious<CR>", default_options)
+--
+---- Cancel search highlighting with ESC
+--map("n", "<ESC>", ":nohlsearch<Bar>:echo<CR>", default_options)
+--
+--map("n", "fh", '<cmd>lua require("config.alexis").search_tuto()<CR>', default_options)
+--map("n", "fd", '<cmd>lua require("config.alexis").search_dotfiles()<CR>', default_options)
+map("n", "<c-_>", '<cmd>lua require("config.alexis").curr_buf()<CR>', default_options)
+--
+----map("n", "<F4>", '<cmd>lua package.loaded.config.alexis = nil <CR> <cmd>source ~/.config/nvim/init.lua<CR>', default_options)
+--map("n", "<F4>", '<cmd>source ~/.config/nvim/init.lua<CR>', default_options)
 
--- Cancel search highlighting with ESC
-map("n", "<ESC>", ":nohlsearch<Bar>:echo<CR>", default_options)
+
 
 ---- Resizing panes
 --map("n", "<Left>", ":vertical resize +1<CR>", default_options)
@@ -42,7 +52,7 @@ map("n", "<ESC>", ":nohlsearch<Bar>:echo<CR>", default_options)
 --map("n", "<Up>", ":resize -1<CR>", default_options)
 --map("n", "<Down>", ":resize +1<CR>", default_options)
 --
----- Autocorrect spelling from previous error
+--o 'toto- Autocorrect spelling from previous error
 --map("i", "<c-f>", "<c-g>u<Esc>[s1z=`]a<c-g>u", default_options)
 --
 ---- Move selected line / block of text in visual mode

@@ -3,30 +3,63 @@ default_options = {noremap = true, silent = true}
 expr_options = {noremap = true, expr = true, silent = true}
 
 -- map the leader key
-map("n", "<Space>", "<NOP>", default_options)
---map("n", ",", "<NOP>", default_options)
-vim.g.mapleader = " "
+vim.g.mapleader = ","
 
----- remap :
---map("n", "<C-P>", "<cmd>FineCmdline<CR>", {noremap = true})
---map('n', ':', '<cmd>FineCmdline<CR>', {noremap = true})
+-- map EsayAlign
+map('n', 'ga', '<Plug>(EasyAlign)', { noremap = false, silent = true })
+map('x', 'ga', '<Plug>(EasyAlign)', { noremap = false, silent = true })
 
----- Sidebar
---map("n", "so", "<cmd>SidebarNvimOpen<CR><cmd>SidebarNvimFocus<CR>", {noremap = true})
---map("n", "sc", "<cmd>SidebarNvimClose<CR>", {noremap = true})
+--- Cancel search highlighting with ESC
+map("n", "<leader><ESC>", ":nohlsearch<Bar>:echo<CR>", default_options)
 
----- center search results
---map("n", "n", "nzz", default_options)
---map("n", "N", "Nzz", default_options)
---
----- Deal with visual line wraps
---map("n", "k", "v:count == 0 ? 'gk' : 'k'", expr_options)
---map("n", "j", "v:count == 0 ? 'gj' : 'j'", expr_options)
---
----- better indenting
---map("v", "<", "<gv", default_options)
---map("v", ">", ">gv", default_options)
---
+-------------------------------------------------------------------------------
+--  split
+-------------------------------------------------------------------------------
+-- Move next split
+map("n", "<leader>ww", '<c-w>w', default_options)
+-- Swap split
+map("n", "<leader>ws", '<c-w>x', default_options)
+-- New vertical split
+map("n", "<leader>wv", '<c-w>v', default_options)
+-- New horizontal split
+map("n", "<leader>wb", '<cmd>split<cr>', default_options)
+-- Close split
+map("n", "<leader>wq", '<c-w>q', default_options)
+
+-------------------------------------------------------------------------------
+--  Telescope
+-------------------------------------------------------------------------------
+-- CRTL / search telescope current buffer
+map("n", "<c-_>", '<cmd>lua require("config.telescope").curr_buf()<CR>', default_options)
+-- search telescope find_file
+map("n", "<leader>ff", '<cmd>Telescope find_files<CR>', default_options)
+-- search telescope tuto
+map("n", "<leader>ft", "<cmd>lua require('config.telescope').search_tuto()<CR>", default_options)
+-- search telescope dotfiles
+map("n", "<leader>fd", "<cmd>lua require('config.telescope').search_dotfiles()<CR>", default_options)
+-- search telescope buffer
+map("n", "<leader>fb", "<cmd>lua require'telescope.builtin'.buffers({ sort_mru = true, ignore_current_buffer = true })<CR>", default_options)
+-- search telescope old file
+map("n", "<leader>fr", "<cmd>lua require'telescope.builtin'.oldfiles()<CR>", default_options)
+-- search telescope tree
+map("n", "<leader>fe", "<cmd>Telescope file_browser<CR>", default_options)
+-- search telescope live grep
+map("n", "<leader>fg", "<cmd>lua require'telescope'.extensions.live_grep_raw.live_grep_raw()<CR>", default_options)
+
+-------------------------------------------------------------------------------
+-- Tree
+-------------------------------------------------------------------------------
+map("n", "<leader>t", "<cmd>NvimTreeToggle<CR>", default_options)
+
+-------------------------------------------------------------------------------
+-- Git fugitive
+-------------------------------------------------------------------------------
+map("n", "<leader>gs", "<cmd>G<CR>", default_options)
+--map("n", "<leader>gc", "<cmd>Git commit<CR>", default_options)
+--map("n", "<leader>gp", "<cmd>Git push<CR>", default_options)
+map("n", "<leader>gf", "<cmd>diffget //2<CR>", default_options)
+map("n", "<leader>gh", "<cmd>diffget //2<CR>", default_options)
+
 ---- paste over currently selected text without yanking it
 --map("v", "p", "\"_dP", default_options)
 
@@ -34,56 +67,8 @@ vim.g.mapleader = " "
 --map("n", "<TAB>", ":bnext<CR>", default_options)
 --map("n", "<S-TAB>", ":bprevious<CR>", default_options)
 --
----- Cancel search highlighting with ESC
---map("n", "<ESC>", ":nohlsearch<Bar>:echo<CR>", default_options)
---
---map("n", "fh", '<cmd>lua require("config.alexis").search_tuto()<CR>', default_options)
---map("n", "fd", '<cmd>lua require("config.alexis").search_dotfiles()<CR>', default_options)
-map("n", "<c-_>", '<cmd>lua require("config.alexis").curr_buf()<CR>', default_options)
---
-----map("n", "<F4>", '<cmd>lua package.loaded.config.alexis = nil <CR> <cmd>source ~/.config/nvim/init.lua<CR>', default_options)
---map("n", "<F4>", '<cmd>source ~/.config/nvim/init.lua<CR>', default_options)
-
-
-
 ---- Resizing panes
---map("n", "<Left>", ":vertical resize +1<CR>", default_options)
+--map("n", "<c-><s-><Left>", ":vertical resize +1<CR>", default_options)
 --map("n", "<Right>", ":vertical resize -1<CR>", default_options)
 --map("n", "<Up>", ":resize -1<CR>", default_options)
 --map("n", "<Down>", ":resize +1<CR>", default_options)
---
---o 'toto- Autocorrect spelling from previous error
---map("i", "<c-f>", "<c-g>u<Esc>[s1z=`]a<c-g>u", default_options)
---
----- Move selected line / block of text in visual mode
---map("x", "K", ":move '<-2<CR>gv-gv", default_options)
---map("x", "J", ":move '>+1<CR>gv-gv", default_options)
---
----- starlite mappings
---map("n", "*", "<cmd>lua require'starlite'.star()<CR>", default_options)
---map("n", "g*", "<cmd>lua require'starlite'.g_star()<CR>", default_options)
---map("n", "#", "<cmd>lua require'starlite'.hash()<CR>", default_options)
---map("n", "g#", "<cmd>lua require'starlite'.g_hash()<CR>", default_options)
---
---function EscapePair()
---    local closers = {")", "]", "}", ">", "'", "\"", "`", ","}
---    local line = vim.api.nvim_get_current_line()
---    local row, col = unpack(vim.api.nvim_win_get_cursor(0))
---    local after = line:sub(col + 1, -1)
---    local closer_col = #after + 1
---    local closer_i = nil
---    for i, closer in ipairs(closers) do
---        local cur_index, _ = after:find(closer)
---        if cur_index and (cur_index < closer_col) then
---            closer_col = cur_index
---            closer_i = i
---        end
---    end
---    if closer_i then
---        vim.api.nvim_win_set_cursor(0, {row, col + closer_col})
---    else
---        vim.api.nvim_win_set_cursor(0, {row, col + 1})
---    end
---end
---
---map("i", "<C-l>", "<cmd>lua EscapePair()<CR>", default_options)
